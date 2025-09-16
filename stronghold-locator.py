@@ -39,15 +39,19 @@ def calculate(x1, y1, t1, x2, y2, t2):
     sys.exit(1)
 
 def main():
-  x1, y1, t1, x2, y2, t2 = parse_input()
-  print("------------ Calculating stronghold location ------------")
+  try:
+    x1, y1, t1, x2, y2, t2 = parse_input()
+    print("------------ Calculating stronghold location ------------")
 
-  x, y = calculate(x1, y1, t1, x2, y2, t2)
+    x, y = calculate(x1, y1, t1, x2, y2, t2)
 
-  print(f"Overworld coordinates: ({round(x)}, {round(y)})")
-  print(f"Nether coordinates: ({round(x/8)}, {round(y/8)})")
+    print(f"Overworld coordinates: ({round(x)}, {round(y)})")
+    print(f"Nether coordinates: ({round(x/8)}, {round(y/8)})")
 
-  sys.exit(0)
+    sys.exit(0)
+
+  except KeyboardInterrupt:
+    sys.exit(1)
 
 if __name__ == "__main__":
   main()
